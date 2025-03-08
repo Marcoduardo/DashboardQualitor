@@ -15,46 +15,6 @@ st.set_page_config(
     page_icon="📊"
 )
 
-# 🌓 Configuração do tema
-def apply_theme(theme):
-    if theme == "Escuro":
-        plt.style.use("dark_background")
-        plotly_template = "plotly_dark"
-        bg_color = "#1e1e1e"
-        text_color = "#ffffff"
-        card_bg = "#2e2e2e"
-    else:
-        plt.style.use("default")
-        plotly_template = "plotly_white"
-        bg_color = "#ffffff"
-        text_color = "#000000"
-        card_bg = "#f8f9fa"
-    
-    st.markdown(f"""
-        <style>
-        .stApp {{
-            background-color: {bg_color};
-            color: {text_color};
-        }}
-        .metric-card {{
-            background: {card_bg};
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            margin: 10px;
-        }}
-        .metric-card h3 {{
-            color: #1e88e5 !important;
-            font-size: 1.2rem !important;
-            margin-bottom: 10px;
-        }}
-        .stSelectbox, .stMultiselect, .stSlider {{
-            margin-bottom: 15px;
-        }}
-        </style>
-    """, unsafe_allow_html=True)
-    return plotly_template
-
 # 📥 Função para carregar dados
 @st.cache_data(ttl=3600)
 def load_data(file):
