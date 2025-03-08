@@ -89,7 +89,12 @@ def load_data(file):
         
         # Criação de novas features temporais
         df["Mês"] = df["Data da abertura"].dt.to_period("M").astype(str)
-        df["Dia da Semana"] = df["Data da abertura"].dt.day_name(locale='pt_BR')
+        
+        # Mapeamento dos dias da semana para português
+        dias_semana_ingles = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday']
+        dias_semana_portugues = ['Segunda-feira', 'Terça-feira', 'Quarta-feira', 'Quinta-feira', 'Sexta-feira', 'Sábado', 'Domingo']
+        df["Dia da Semana"] = df["Data da abertura"].dt.day_name().map(dict(zip(dias_semana_ingles, dias_semana_portugues)))
+        
         df["Hora"] = df["Data da abertura"].dt.hour
 
         # Ordenação dos dias da semana
