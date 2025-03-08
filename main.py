@@ -1051,10 +1051,7 @@ def create_charts(df, template):
         
 # 📌 Função principal
 def main():
-    # 🎨 Tema
-    theme = st.sidebar.selectbox("🎨 Tema", ["Claro", "Escuro"], index=0)
-    plotly_template = apply_theme(theme)
-    
+
     # 📤 Upload de arquivo
     uploaded_file = st.sidebar.file_uploader("📤 Carregar arquivo Excel", type=["xlsx"])
     if not uploaded_file:
