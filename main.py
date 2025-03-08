@@ -1085,7 +1085,7 @@ def main():
     
     # 📊 Renderizar conteúdo
     create_metrics(df_filtered)
-    create_charts(df_filtered, plotly_template)
+    create_charts(df_filtered)
     
     # 📥 Download dos dados filtrados
     st.sidebar.download_button(
